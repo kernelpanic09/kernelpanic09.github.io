@@ -123,10 +123,21 @@
     }
 
     /* Stack */
-    .stack-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    .stack-grid { display: grid; gap: 28px 32px; grid-template-columns: 1fr; }
     @media (min-width: 600px) { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
-    .stack-group h3 { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 8px; }
-    .stack-items { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text); line-height: 1.8; }
+    .stack-group h3 { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-subtle); margin: 0 0 12px; }
+    .stack-items { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack-item {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text);
+      background: var(--code-bg);
+      padding: 4px 9px;
+      border-radius: 5px;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
 
     /* Certifications */
     .certs { display: grid; gap: 12px; grid-template-columns: 1fr; }
@@ -253,43 +264,126 @@
       <div class="stack-grid">
         <div class="stack-group">
           <h3>Cloud</h3>
-          <div class="stack-items">AWS · VPC · IAM · Organizations · EKS · ECS · Lambda · S3 · RDS · Bedrock · Route 53 · CloudFront · KMS</div>
+          <div class="stack-items">
+            <span class="stack-item">AWS</span>
+            <span class="stack-item">VPC</span>
+            <span class="stack-item">IAM</span>
+            <span class="stack-item">Organizations</span>
+            <span class="stack-item">EKS</span>
+            <span class="stack-item">ECS</span>
+            <span class="stack-item">Lambda</span>
+            <span class="stack-item">S3</span>
+            <span class="stack-item">RDS</span>
+            <span class="stack-item">Bedrock</span>
+            <span class="stack-item">Route 53</span>
+            <span class="stack-item">CloudFront</span>
+            <span class="stack-item">KMS</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>IaC</h3>
-          <div class="stack-items">Terraform · Ansible · Packer · cloud-init · Helm</div>
+          <div class="stack-items">
+            <span class="stack-item">Terraform</span>
+            <span class="stack-item">Ansible</span>
+            <span class="stack-item">Packer</span>
+            <span class="stack-item">cloud-init</span>
+            <span class="stack-item">Helm</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>CI/CD</h3>
-          <div class="stack-items">GitHub Actions · ArgoCD · Jenkins · Docker · cosign · Trivy</div>
+          <div class="stack-items">
+            <span class="stack-item">GitHub Actions</span>
+            <span class="stack-item">ArgoCD</span>
+            <span class="stack-item">Jenkins</span>
+            <span class="stack-item">Docker</span>
+            <span class="stack-item">cosign</span>
+            <span class="stack-item">Trivy</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>Containers</h3>
-          <div class="stack-items">Kubernetes · EKS · ECS · K3s · containerd · Docker</div>
+          <div class="stack-items">
+            <span class="stack-item">Kubernetes</span>
+            <span class="stack-item">EKS</span>
+            <span class="stack-item">ECS</span>
+            <span class="stack-item">K3s</span>
+            <span class="stack-item">containerd</span>
+            <span class="stack-item">Docker</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>Networking</h3>
-          <div class="stack-items">VPC design · BGP · DNS · TLS · VPN · Transit Gateway · Load Balancing · WAF</div>
+          <div class="stack-items">
+            <span class="stack-item">VPC design</span>
+            <span class="stack-item">BGP</span>
+            <span class="stack-item">DNS</span>
+            <span class="stack-item">TLS</span>
+            <span class="stack-item">VPN</span>
+            <span class="stack-item">Transit Gateway</span>
+            <span class="stack-item">Load Balancing</span>
+            <span class="stack-item">WAF</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>Security</h3>
-          <div class="stack-items">IAM · KMS · Secrets Manager · OIDC · SAML · GuardDuty · Security Hub · Vault</div>
+          <div class="stack-items">
+            <span class="stack-item">IAM</span>
+            <span class="stack-item">KMS</span>
+            <span class="stack-item">Secrets Manager</span>
+            <span class="stack-item">OIDC</span>
+            <span class="stack-item">SAML</span>
+            <span class="stack-item">GuardDuty</span>
+            <span class="stack-item">Security Hub</span>
+            <span class="stack-item">Vault</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>Data</h3>
-          <div class="stack-items">PostgreSQL · MySQL · Aurora · DynamoDB · Redis · SQLite</div>
+          <div class="stack-items">
+            <span class="stack-item">PostgreSQL</span>
+            <span class="stack-item">MySQL</span>
+            <span class="stack-item">Aurora</span>
+            <span class="stack-item">DynamoDB</span>
+            <span class="stack-item">Redis</span>
+            <span class="stack-item">SQLite</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>AI / ML</h3>
-          <div class="stack-items">LangChain · LangGraph · RAG · Vector DBs · Qdrant · Ollama · Bedrock · Claude API · MCP</div>
+          <div class="stack-items">
+            <span class="stack-item">LangChain</span>
+            <span class="stack-item">LangGraph</span>
+            <span class="stack-item">RAG</span>
+            <span class="stack-item">Vector DBs</span>
+            <span class="stack-item">Qdrant</span>
+            <span class="stack-item">Ollama</span>
+            <span class="stack-item">Bedrock</span>
+            <span class="stack-item">Claude API</span>
+            <span class="stack-item">MCP</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>Observability</h3>
-          <div class="stack-items">Prometheus · Grafana · CloudWatch · OpenTelemetry · ELK · X-Ray</div>
+          <div class="stack-items">
+            <span class="stack-item">Prometheus</span>
+            <span class="stack-item">Grafana</span>
+            <span class="stack-item">CloudWatch</span>
+            <span class="stack-item">OpenTelemetry</span>
+            <span class="stack-item">ELK</span>
+            <span class="stack-item">X-Ray</span>
+          </div>
         </div>
         <div class="stack-group">
           <h3>Languages</h3>
-          <div class="stack-items">Python · Go · TypeScript · HCL · Bash · YAML</div>
+          <div class="stack-items">
+            <span class="stack-item">Python</span>
+            <span class="stack-item">Go</span>
+            <span class="stack-item">TypeScript</span>
+            <span class="stack-item">HCL</span>
+            <span class="stack-item">Bash</span>
+            <span class="stack-item">YAML</span>
+          </div>
         </div>
       </div>
     </section>
