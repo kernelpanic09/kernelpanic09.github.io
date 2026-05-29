@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kernelpanic09 | Platform & AI Engineer</title>
+  <meta name="description" content="Senior Cloud, Platform, and AI Engineer. Building infrastructure and AI agent systems.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --border: #e7e5e4;
+      --text: #18181b;
+      --text-muted: #57534e;
+      --text-subtle: #a8a29e;
+      --accent: #0a0a0a;
+      --accent-hover: #404040;
+      --link: #1d4ed8;
+      --code-bg: #f5f5f4;
+      --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04);
+    }
+    html { -webkit-font-smoothing: antialiased; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    code { font-family: 'JetBrains Mono', monospace; font-size: 0.875em; background: var(--code-bg); padding: 2px 6px; border-radius: 4px; }
+
+    /* Header */
+    header { padding: 80px 0 48px; }
+    .eyebrow {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: 40px; font-weight: 700; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.02em; }
+    .tagline { font-size: 18px; color: var(--text-muted); margin: 0 0 24px; max-width: 580px; }
+    .links { display: flex; gap: 16px; align-items: center; }
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      transition: all 0.15s;
+    }
+    .links a:hover { border-color: var(--accent); }
+    .links svg { width: 16px; height: 16px; }
+
+    /* Sections */
+    section { padding: 48px 0; border-top: 1px solid var(--border); }
+    .section-title { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 32px; }
+    h2 { font-size: 24px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.01em; }
+    p { margin: 0 0 16px; color: var(--text-muted); }
+    p strong { color: var(--text); font-weight: 600; }
+    a.inline { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+    a.inline:hover { border-color: var(--link); }
+
+    /* About */
+    .about p { font-size: 16px; line-height: 1.7; }
+
+    /* Project cards */
+    .projects { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .projects { grid-template-columns: 1fr 1fr; } }
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.15s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+    }
+    .project:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .project-name { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 600; color: var(--text); }
+    .project-badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 500;
+      background: var(--code-bg);
+      color: var(--text-muted);
+    }
+    .badge-ai { background: #fef3c7; color: #92400e; }
+    .badge-infra { background: #dbeafe; color: #1e40af; }
+    .badge-platform { background: #dcfce7; color: #166534; }
+    .badge-integration { background: #fce7f3; color: #9d174d; }
+    .project-desc { font-size: 14px; color: var(--text-muted); line-height: 1.55; margin: 0 0 16px; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 2px 6px;
+      background: var(--code-bg);
+      color: var(--text-muted);
+      border-radius: 4px;
+    }
+
+    /* Stack */
+    .stack-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 600px) { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stack-group h3 { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 8px; }
+    .stack-items { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text); line-height: 1.8; }
+
+    /* Footer */
+    footer { padding: 48px 0 64px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-subtle); }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <span class="eyebrow">kernelpanic09</span>
+      <h1>Platform & AI Engineer</h1>
+      <p class="tagline">12 years building and operating production infrastructure. Currently focused on AI agent systems and the cloud platforms they run on.</p>
+      <div class="links">
+        <a href="https://github.com/kernelpanic09" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6C20.6 21.8 24 17.3 24 12c0-6.6-5.4-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </header>
+
+    <section class="about">
+      <p class="section-title">About</p>
+      <p>I work across the full infrastructure stack, from telecom networking and bare metal Kubernetes to AWS landing zones and AI agent platforms. I care about systems that hold up under real load, deployments that don't require a maintenance window, and automation that recovers without a phone call.</p>
+      <p>My current focus is bringing the same operational discipline I apply to infrastructure (observability, evaluation, cost tracking, recovery) to LLM-powered workflows. The projects below are real, running code, not demos.</p>
+    </section>
+
+    <section>
+      <p class="section-title">Projects</p>
+      <div class="projects">
+
+        <a class="project" href="https://github.com/kernelpanic09/agents-platform" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">agents-platform</span>
+            <span class="project-badge badge-ai">AI</span>
+          </div>
+          <p class="project-desc">AI agent orchestration platform. 26 agent personas, RAG with Qdrant and Ollama, LangGraph workflows, cost and latency observability, LLM eval framework, SSH dispatch to Claude Code, and demo mode that runs anywhere via docker-compose.</p>
+          <div class="project-tags">
+            <span class="project-tag">react</span>
+            <span class="project-tag">express</span>
+            <span class="project-tag">langchain</span>
+            <span class="project-tag">langgraph</span>
+            <span class="project-tag">qdrant</span>
+            <span class="project-tag">k3s</span>
+          </div>
+        </a>
+
+        <a class="project" href="https://github.com/kernelpanic09/terraform-aws-modules" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">terraform-aws-modules</span>
+            <span class="project-badge badge-infra">Infrastructure</span>
+          </div>
+          <p class="project-desc">18 Terraform modules covering the patterns most companies build from scratch. Okta-AWS SAML federation, Identity Center as code, GuardDuty auto-remediation, Bedrock RAG, ephemeral GitHub runner fleets, multi-region DNS failover.</p>
+          <div class="project-tags">
+            <span class="project-tag">terraform</span>
+            <span class="project-tag">aws</span>
+            <span class="project-tag">eks</span>
+            <span class="project-tag">bedrock</span>
+            <span class="project-tag">okta</span>
+            <span class="project-tag">guardduty</span>
+          </div>
+        </a>
+
+        <a class="project" href="https://github.com/kernelpanic09/mcp-server-aws" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">mcp-server-aws</span>
+            <span class="project-badge badge-integration">AI + Cloud</span>
+          </div>
+          <p class="project-desc">Model Context Protocol server that lets Claude and other AI agents query AWS resources. 22 read tools across EC2, S3, IAM, CloudWatch, Cost Explorer, EKS, Lambda, and more. Read-only by default with opt-in write scopes and confirmation tokens.</p>
+          <div class="project-tags">
+            <span class="project-tag">python</span>
+            <span class="project-tag">mcp</span>
+            <span class="project-tag">boto3</span>
+            <span class="project-tag">claude</span>
+            <span class="project-tag">aws</span>
+          </div>
+        </a>
+
+        <a class="project" href="https://github.com/kernelpanic09/github-actions-platform" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">github-actions-platform</span>
+            <span class="project-badge badge-platform">Platform</span>
+          </div>
+          <p class="project-desc">Reusable GitHub Actions workflows and composite actions for the boilerplate every team builds from scratch. Terraform with OIDC, multi-arch Docker with cosign signing, Helm deploys with rollout waits, Trivy scanning with SARIF.</p>
+          <div class="project-tags">
+            <span class="project-tag">github-actions</span>
+            <span class="project-tag">terraform</span>
+            <span class="project-tag">docker</span>
+            <span class="project-tag">helm</span>
+            <span class="project-tag">oidc</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section>
+      <p class="section-title">Stack</p>
+      <div class="stack-grid">
+        <div class="stack-group">
+          <h3>Cloud</h3>
+          <div class="stack-items">AWS · VPC · IAM · Organizations · S3 · EKS · ECS · Lambda · Bedrock</div>
+        </div>
+        <div class="stack-group">
+          <h3>IaC</h3>
+          <div class="stack-items">Terraform · Ansible · Packer · cloud-init</div>
+        </div>
+        <div class="stack-group">
+          <h3>CI/CD</h3>
+          <div class="stack-items">GitHub Actions · ArgoCD · Jenkins · Docker · Helm</div>
+        </div>
+        <div class="stack-group">
+          <h3>Containers</h3>
+          <div class="stack-items">Kubernetes · K3s · containerd</div>
+        </div>
+        <div class="stack-group">
+          <h3>Networking</h3>
+          <div class="stack-items">VPC design · BGP · DNS · VPN · pfSense · WireGuard</div>
+        </div>
+        <div class="stack-group">
+          <h3>AI</h3>
+          <div class="stack-items">LangChain · LangGraph · Qdrant · Ollama · Claude API · MCP</div>
+        </div>
+        <div class="stack-group">
+          <h3>Observability</h3>
+          <div class="stack-items">Prometheus · Grafana · CloudWatch · Uptime Kuma</div>
+        </div>
+        <div class="stack-group">
+          <h3>Languages</h3>
+          <div class="stack-items">Python · HCL · Bash · Go · TypeScript</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-title">Certifications</p>
+      <p>HashiCorp Certified: Terraform Associate</p>
+      <p>Red Hat Certified System Administrator (RHCSA), RHEL 8</p>
+      <p>Extreme Networks HDE (High Density Environments)</p>
+    </section>
+
+    <footer>
+      Built with vanilla HTML and CSS. No frameworks, no build step. Source on <a href="https://github.com/kernelpanic09/kernelpanic09.github.io" target="_blank" rel="noopener">GitHub</a>.
+    </footer>
+
+  </div>
+</body>
+</html>
