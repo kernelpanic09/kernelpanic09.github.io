@@ -47,7 +47,10 @@
       margin-bottom: 16px;
     }
     h1 { font-size: 40px; font-weight: 700; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.02em; }
-    .tagline { font-size: 18px; color: var(--text-muted); margin: 0 0 24px; max-width: 580px; }
+    .tagline { font-size: 18px; color: var(--text-muted); margin: 0 0 16px; max-width: 580px; }
+    .stats { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 24px; font-size: 13px; color: var(--text-subtle); font-family: 'JetBrains Mono', monospace; }
+    .stats strong { color: var(--text); font-weight: 600; }
+    .stats .dot { color: var(--text-subtle); opacity: 0.5; }
     .links { display: flex; gap: 16px; align-items: center; }
     .links a {
       display: inline-flex;
@@ -125,10 +128,25 @@
     .stack-group h3 { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 8px; }
     .stack-items { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text); line-height: 1.8; }
 
+    /* Certifications */
+    .certs { display: grid; gap: 12px; grid-template-columns: 1fr; }
+    @media (min-width: 600px) { .certs { grid-template-columns: repeat(3, 1fr); } }
+    .cert {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .cert-issuer { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .cert-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.35; }
+    .cert-meta { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
     /* Footer */
-    footer { padding: 48px 0 64px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-subtle); }
+    footer { padding: 48px 0 64px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-subtle); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
     footer a { color: var(--text-muted); text-decoration: none; }
     footer a:hover { color: var(--text); }
+    footer .dot { opacity: 0.5; }
   </style>
 </head>
 <body>
@@ -138,6 +156,15 @@
       <span class="eyebrow">kernelpanic09</span>
       <h1>Platform & AI Engineer</h1>
       <p class="tagline">12 years building and operating production infrastructure. Currently focused on AI agent systems and the cloud platforms they run on.</p>
+      <div class="stats">
+        <span><strong>12+</strong> years</span>
+        <span class="dot">·</span>
+        <span><strong>4</strong> open source projects</span>
+        <span class="dot">·</span>
+        <span><strong>18</strong> Terraform modules shipped</span>
+        <span class="dot">·</span>
+        <span>HashiCorp · RHCSA certified</span>
+      </div>
       <div class="links">
         <a href="https://github.com/kernelpanic09" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6C20.6 21.8 24 17.3 24 12c0-6.6-5.4-12-12-12z"/></svg>
@@ -226,48 +253,70 @@
       <div class="stack-grid">
         <div class="stack-group">
           <h3>Cloud</h3>
-          <div class="stack-items">AWS · VPC · IAM · Organizations · S3 · EKS · ECS · Lambda · Bedrock</div>
+          <div class="stack-items">AWS · VPC · IAM · Organizations · EKS · ECS · Lambda · S3 · RDS · Bedrock · Route 53 · CloudFront · KMS</div>
         </div>
         <div class="stack-group">
           <h3>IaC</h3>
-          <div class="stack-items">Terraform · Ansible · Packer · cloud-init</div>
+          <div class="stack-items">Terraform · Ansible · Packer · cloud-init · Helm</div>
         </div>
         <div class="stack-group">
           <h3>CI/CD</h3>
-          <div class="stack-items">GitHub Actions · ArgoCD · Jenkins · Docker · Helm</div>
+          <div class="stack-items">GitHub Actions · ArgoCD · Jenkins · Docker · cosign · Trivy</div>
         </div>
         <div class="stack-group">
           <h3>Containers</h3>
-          <div class="stack-items">Kubernetes · K3s · containerd</div>
+          <div class="stack-items">Kubernetes · EKS · ECS · K3s · containerd · Docker</div>
         </div>
         <div class="stack-group">
           <h3>Networking</h3>
-          <div class="stack-items">VPC design · BGP · DNS · TLS · VPN · Load Balancing · WAF</div>
+          <div class="stack-items">VPC design · BGP · DNS · TLS · VPN · Transit Gateway · Load Balancing · WAF</div>
         </div>
         <div class="stack-group">
-          <h3>AI</h3>
-          <div class="stack-items">LangChain · LangGraph · Qdrant · Ollama · Claude API · MCP</div>
+          <h3>Security</h3>
+          <div class="stack-items">IAM · KMS · Secrets Manager · OIDC · SAML · GuardDuty · Security Hub · Vault</div>
+        </div>
+        <div class="stack-group">
+          <h3>Data</h3>
+          <div class="stack-items">PostgreSQL · MySQL · Aurora · DynamoDB · Redis · SQLite</div>
+        </div>
+        <div class="stack-group">
+          <h3>AI / ML</h3>
+          <div class="stack-items">LangChain · LangGraph · RAG · Vector DBs · Qdrant · Ollama · Bedrock · Claude API · MCP</div>
         </div>
         <div class="stack-group">
           <h3>Observability</h3>
-          <div class="stack-items">Prometheus · Grafana · CloudWatch · OpenTelemetry · ELK</div>
+          <div class="stack-items">Prometheus · Grafana · CloudWatch · OpenTelemetry · ELK · X-Ray</div>
         </div>
         <div class="stack-group">
           <h3>Languages</h3>
-          <div class="stack-items">Python · HCL · Bash · Go · TypeScript</div>
+          <div class="stack-items">Python · Go · TypeScript · HCL · Bash · YAML</div>
         </div>
       </div>
     </section>
 
     <section>
       <p class="section-title">Certifications</p>
-      <p>HashiCorp Certified: Terraform Associate</p>
-      <p>Red Hat Certified System Administrator (RHCSA), RHEL 8</p>
-      <p>Extreme Networks HDE (High Density Environments)</p>
+      <div class="certs">
+        <div class="cert">
+          <div class="cert-issuer">HashiCorp</div>
+          <div class="cert-name">Terraform Associate</div>
+        </div>
+        <div class="cert">
+          <div class="cert-issuer">Red Hat</div>
+          <div class="cert-name">Certified System Administrator (RHCSA)</div>
+          <div class="cert-meta">RHEL 8</div>
+        </div>
+        <div class="cert">
+          <div class="cert-issuer">Extreme Networks</div>
+          <div class="cert-name">High Density Environments (HDE)</div>
+        </div>
+      </div>
     </section>
 
     <footer>
-      Built with vanilla HTML and CSS. No frameworks, no build step. Source on <a href="https://github.com/kernelpanic09/kernelpanic09.github.io" target="_blank" rel="noopener">GitHub</a>.
+      <span>© 2026 kernelpanic09</span>
+      <span class="dot">·</span>
+      <a href="https://github.com/kernelpanic09/kernelpanic09.github.io" target="_blank" rel="noopener">Source</a>
     </footer>
 
   </div>
